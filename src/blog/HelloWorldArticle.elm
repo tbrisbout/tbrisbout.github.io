@@ -8,6 +8,7 @@ article =
     { title = "Hello World"
     , date = sureDate "2017-06-25"
     , content = content
+    , tags = [ "personal development", "meta" ]
     }
 
 

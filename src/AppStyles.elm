@@ -24,9 +24,14 @@ dateColor =
     hex "9eabb3"
 
 
-linkColor : Color
-linkColor =
+darkBlue : Color
+darkBlue =
     hex "164659"
+
+
+mediumBlue : Color
+mediumBlue =
+    hex "285d74"
 
 
 lightBlue : Color
@@ -80,7 +85,30 @@ projectLinkStyle : List (Html.Attribute a)
 projectLinkStyle =
     [ styles
         [ textDecoration none
-        , color linkColor
+        , color darkBlue
+        ]
+    ]
+
+
+tagListStyle : List (Html.Attribute a)
+tagListStyle =
+    [ styles
+        [ padding zero
+        , marginTop (px 30)
+        ]
+    ]
+
+
+tagStyle : List (Html.Attribute a)
+tagStyle =
+    [ styles
+        [ display inlineBlock
+        , borderRadius (px 15)
+        , fontSize (px 15)
+        , backgroundColor mediumBlue
+        , padding2 (px 5) (px 15)
+        , marginRight (px 5)
+        , color white
         ]
     ]
 

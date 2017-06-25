@@ -7,6 +7,7 @@ type alias Article =
     { title : String
     , date : Date
     , content : String
+    , tags : List String
     }
 
 

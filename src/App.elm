@@ -45,11 +45,11 @@ view : Model -> Html Msg
 view model =
     div bodyStyle
         [ h1 [ centered ] [ text "Still don't know why this works" ]
-        , p [ centered ] [ text "/^a blog about code and other stuffs$/" ]
+        , p [ centered ] [ text "/^a blog about programming and other stuff$/" ]
         , sectionTitle "Articles"
         , div [] <| List.map displayArticle model.articles
         , sectionTitle "Projects"
-        , text "Hera are a few side projects I have been working on"
+        , text "Here are a few side projects I have been working on"
         , ul [] <| List.map displayProject model.projects
         ]
 
@@ -65,6 +65,7 @@ displayArticle article =
         [ span dateStyle [ displayDate article.date ]
         , h2 articleTitleStyle [ text article.title ]
         , Markdown.toHtml [] article.content
+        , displayTags article.tags
         ]
 
 
@@ -77,6 +78,23 @@ displayDate date =
         |> List.take 3
         |> List.foldr (\a b -> a ++ " " ++ b) ""
         |> text
+
+
+displayTags : List String -> Html Msg
+displayTags tags =
+    case tags of
+        [] ->
+            div [] []
+
+        _ ->
+            tags
+                |> List.map displayTag
+                |> ul tagListStyle
+
+
+displayTag : String -> Html Msg
+displayTag tag =
+    li tagStyle [ text tag ]
 
 
 displayProject : Project -> Html Msg
