@@ -44,24 +44,17 @@ update msg model =
 view : Model -> Html Msg
 view model =
     div bodyStyle
-        [ h1 [ centered ] [ text "Still don't know why this works" ]
-        , p [ centered ] [ text "/^a blog about programming and other stuff$/" ]
-        , sectionTitle "Articles"
-        , div [] <| List.map displayArticle model.articles
-        , sectionTitle "Projects"
-        , text "Here are a few side projects I have been working on"
-        , ul [] <| List.map displayProject model.projects
+        [ header headerStyle
+            [ h1 [] [ text "Still don't know why this works" ]
+            , p subtitleStyle [ text "/^a blog about programming and other stuff$/" ]
+            ]
+        , div [] <| List.reverse <| List.map displayArticle model.articles
         ]
-
-
-sectionTitle : String -> Html Msg
-sectionTitle title =
-    h3 sectionTitleStyle [ text title ]
 
 
 displayArticle : Article -> Html Msg
 displayArticle article =
-    div []
+    div articleStyle
         [ span dateStyle [ displayDate article.date ]
         , h2 articleTitleStyle [ text article.title ]
         , Markdown.toHtml [] article.content
@@ -100,7 +93,7 @@ displayTag tag =
 displayProject : Project -> Html Msg
 displayProject project =
     li []
-        [ a (projectLinkStyle ++ [ href project.url ]) [ text project.name ]
+        [ a [ href project.url ] [ text project.name ]
         ]
 
 

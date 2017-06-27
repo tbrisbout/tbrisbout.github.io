@@ -5,6 +5,7 @@ import Html.Attributes
 import Css exposing (..)
 
 
+styles : List Style -> Html.Attribute msg
 styles =
     Css.asPairs >> Html.Attributes.style
 
@@ -17,6 +18,11 @@ styles =
 white : Color
 white =
     hex "ffffff"
+
+
+darkGrey : Color
+darkGrey =
+    hex "a9a9a9"
 
 
 dateColor : Color
@@ -51,20 +57,25 @@ bodyStyle =
     ]
 
 
-sectionTitleStyle : List (Html.Attribute a)
-sectionTitleStyle =
+headerStyle : StyleSpec msg
+headerStyle =
     (styles
-        [ color white
-        , backgroundColor lightBlue
-        , padding (px 5)
-        , margin2 (px 40) zero
-        ]
+        [ marginBottom (px 100) ]
     )
         :: centered
         :: []
 
 
-dateStyle : List (Html.Attribute a)
+subtitleStyle : StyleSpec msg
+subtitleStyle =
+    [ styles
+        [ marginTop (px -20)
+        , color darkGrey
+        ]
+    ]
+
+
+dateStyle : List (Html.Attribute msg)
 dateStyle =
     [ styles
         [ color dateColor
@@ -73,7 +84,18 @@ dateStyle =
     ]
 
 
-articleTitleStyle : List (Html.Attribute a)
+type alias StyleSpec msg =
+    List (Html.Attribute msg)
+
+
+articleStyle : StyleSpec msg
+articleStyle =
+    [ styles
+        [ marginBottom (px 50) ]
+    ]
+
+
+articleTitleStyle : List (Html.Attribute msg)
 articleTitleStyle =
     [ styles
         [ property "-webkit-margin-before" "0"
@@ -81,16 +103,7 @@ articleTitleStyle =
     ]
 
 
-projectLinkStyle : List (Html.Attribute a)
-projectLinkStyle =
-    [ styles
-        [ textDecoration none
-        , color darkBlue
-        ]
-    ]
-
-
-tagListStyle : List (Html.Attribute a)
+tagListStyle : List (Html.Attribute msg)
 tagListStyle =
     [ styles
         [ padding zero
@@ -99,7 +112,7 @@ tagListStyle =
     ]
 
 
-tagStyle : List (Html.Attribute a)
+tagStyle : List (Html.Attribute msg)
 tagStyle =
     [ styles
         [ display inlineBlock
@@ -107,7 +120,8 @@ tagStyle =
         , fontSize (px 15)
         , backgroundColor mediumBlue
         , padding2 (px 5) (px 15)
-        , marginRight (px 5)
+        , marginRight (px 10)
+        , boxShadow4 (px 0) (px 10) (px 30) (rgba 0 0 0 0.2)
         , color white
         ]
     ]
