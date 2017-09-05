@@ -106,7 +106,7 @@ Know useful libraries
 ### Good Developer Mindset
 
 - Know how to search for information
-- know how to properly as for information
+- Know how to properly as for information
 - Have a personal workflow
 - Put in place an efficient technical watch
 - Know how to interact efficiently with others

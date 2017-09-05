@@ -45,7 +45,7 @@ view : Model -> Html Msg
 view model =
     div bodyStyle
         [ header headerStyle
-            [ h1 [] [ text "Still don't know why this works" ]
+            [ h1 [] [ text "Compiling thoughts and code" ]
             , p subtitleStyle [ text "/^a blog about programming and other stuff$/" ]
             ]
         , div [] <| List.reverse <| List.map displayArticle model.articles
