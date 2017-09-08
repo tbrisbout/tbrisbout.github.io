@@ -2,15 +2,17 @@ module Blog exposing (articles)
 
 import Article exposing (Article)
 import HelloWorldArticle
-import ReactFromElmArticle
+import ReactSkeuomorphism
 import JsLearningPath
 import ElixirDevEnv
+import Linters
 
 
 articles : List Article
 articles =
     [ HelloWorldArticle.article
-      -- , ReactFromElmArticle.article
+    , ReactSkeuomorphism.article
       -- , JsLearningPath.article
     , ElixirDevEnv.article
+    , Linters.article
     ]

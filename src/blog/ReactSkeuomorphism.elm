@@ -1,11 +1,11 @@
-module ReactFromElmArticle exposing (article)
+module ReactSkeuomorphism exposing (article)
 
 import Article exposing (Article, sureDate)
 
 
 article : Article
 article =
-    { title = "React from an Elm developer"
+    { title = "React without skeuomorphism"
     , date = sureDate "2017-06-26"
     , tags = [ "react", "elm" ]
     , content = content
@@ -19,12 +19,9 @@ Writing in progress
 
 ### Main ideas:
 - View as a function of state is a great idea
-- Implementation of that idea is _okay_...
-
 - Thinking in component is good
 - JSX is skeuomorphism for web developers
-
-- We could already do better with little known libs (`hyperscript` & `hyperscript-helpers`)
+- We can avoid it with little known libs (`hyperscript` & `hyperscript-helpers`)
 
 
 ```javascript
